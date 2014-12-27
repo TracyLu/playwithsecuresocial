@@ -1,0 +1,49 @@
+@(title: String)(content: Html)(implicit lang: Lang, env: securesocial.core.RuntimeEnvironment[_])
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="http://apps.bdimg.com/libs/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="shortcut icon" type="image/png" href="@env.routes.faviconPath">
+        @env.routes.customCssPath.map { customPath =>
+            <link rel="stylesheet" media="screen" href="@customPath">
+        }
+
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <script src="@env.routes.jqueryPath" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">@Messages("securesocial.appName")</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/landingpage">Landing Page</a></li>
+                <li class="active"><a href='/hire'>Hire a Spiderman</a></li>
+                <li class="active"><a href="/all">Your Spiderman</a></li>
+            </ul>
+        </div>
+
+        <div class="container" style="padding-top:30px">
+        @content
+        </div>
+        <div class="footer">
+            <div class="container">
+                <p class="text-muted">This is a nice footer.</p>
+            </div>
+        </div>
+            <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="http://apps.bdimg.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    </body>
+</html>
