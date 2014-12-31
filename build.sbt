@@ -10,7 +10,9 @@ libraryDependencies ++= Seq(
   jdbc,
   anorm,
   cache,
-  ws
+  ws,
+  "org.webjars" % "bootstrap" % "3.2.0",
+  "org.webjars" % "flot" % "0.8.0"
 )
 
 libraryDependencies ++= Seq(
